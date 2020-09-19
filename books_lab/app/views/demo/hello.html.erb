@@ -1,0 +1,11 @@
+<h1>Hello world from Hello!</h1>
+
+<% @array.each do |n| %>
+    <%= n %> </br>
+<% end %>
+
+<%= link_to('its a link!', {:action => 'hello'})%> </br>
+
+ID: <%= @id %> </br>
+ID: <%= params[:id] %> </br>
+Page : <%= @page %> </br>

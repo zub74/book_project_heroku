@@ -1,0 +1,35 @@
+<%if !flash[:notice].blank?%>
+  <div class ="notice">
+    <%= flash[:notice] %>
+  </div>
+<%end%>
+
+<div class="books index">
+  <h2>books</h2>
+
+  <%= link_to("Add New book", {:controller => 'books', :action => 'AddBook'}, :class => 'action new') %>
+
+  <table class="listing" summary="book list">
+    <tr class="header">
+      <th>Title</th>
+      <th>Author</th>
+      <th>Genre</th>
+      <th>Price</th>
+      <th>Date Published</th>
+    </tr>
+    <% @books.each do |book| %>
+    <tr>
+      <td><%= book.title %></td>
+      <td><%= book.author %></td>
+      <td><%= book.genre %></td>
+      <td><%= book.price %></td>
+      <td><%= book.published_date %></td>
+      <td class="actions">
+        <%= link_to("Show Details", {:controller => 'books', :action => 'Details', :id => book.id}, :class => 'action show') %>
+        <%= link_to("Update", {:controller => 'books', :action => 'UpdateBook', :id => book.id}, :class => 'action edit') %>
+        <%= link_to("Delete", {:controller => 'books', :action => 'Delete', :id => book.id}, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
